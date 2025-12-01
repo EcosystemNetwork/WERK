@@ -49,9 +49,14 @@ export default function Dashboard({ className, onDisconnect }: DashboardProps) {
 
   const copyAddress = async () => {
     if (address) {
-      await navigator.clipboard.writeText(address)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      try {
+        await navigator.clipboard.writeText(address)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      } catch {
+        // Fallback for browsers that don't support clipboard API
+        console.warn('Clipboard API not available')
+      }
     }
   }
 
@@ -140,7 +145,7 @@ export default function Dashboard({ className, onDisconnect }: DashboardProps) {
                 "lem-text-3xl lem-font-bold lem-tracking-tight",
                 btcBalanceError ? "lem-text-red-400" : "lem-text-foreground"
               )}>
-                {btcBalanceError ? 'Error' : isBtcBalancePending ? '---' : String(btcBalance)}
+                {btcBalanceError ? 'Error' : isBtcBalancePending ? '---' : (btcBalance != null ? String(btcBalance) : '0')}
               </span>
               <span className="lem-text-sm lem-text-orange-400 lem-font-medium">BTC</span>
             </div>
