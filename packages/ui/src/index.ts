@@ -1,5 +1,6 @@
 import ConnectWalletButton from "./components/connection-modal/ConnectButton"
 import ConnectWalletModal from "./components/connection-modal/ConnectModal"
+import Dashboard from "./components/dashboard/Dashboard"
 import ThemeControls from "./components/ThemeControls"
 import {
   Select,
@@ -25,6 +26,7 @@ export {
   LaserEyesModalProvider,
   ConnectWalletButton,
   AccountInfo,
+  Dashboard,
   Select,
   SelectContent,
   SelectItem,

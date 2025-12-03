@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@omnisat/lasereyes": "workspace:*",
+    "@omnisat/lasereyes-ui": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "web-vitals": "^2.1.4"
